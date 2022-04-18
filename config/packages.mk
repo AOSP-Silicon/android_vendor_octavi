@@ -1,3 +1,14 @@
+# Lawnchair Launcher
+ifeq ($(WITH_GAPPS),true)
+TARGET_BUILD_LAWNCHAIR := false
+else
+TARGET_BUILD_LAWNCHAIR ?= true
+endif
+
+ifeq ($(strip $(TARGET_BUILD_LAWNCHAIR)),true)
+include vendor/lawnchair/lawnchair.mk
+endif
+
 # RRO Overlays
 PRODUCT_PACKAGES += \
     NavigationBarModeGesturalOverlayFS
